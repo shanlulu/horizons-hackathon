@@ -26,6 +26,19 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
 
+// app.get('/test', function(req, res) {
+//   new ShelfItem({
+//     name: 'Shan',
+//     date: 1500062828334,
+//     category: 'hey'
+//   }).save(function(err, item) {
+//     if (err) console.log('ERROR', err);
+//     else {
+//       console.log('SAVED', item);
+//       res.redirect('/fetch');
+//     }
+//   });
+// })
 
 app.get('/fetch', function(req, res) {
   var expired = [];
@@ -38,13 +51,16 @@ app.get('/fetch', function(req, res) {
       for (var item in items) {
         //var expiration = new Date(new Date().getTime() + item.date);
         var now = new Date().getTime();
-        var expiration = item.date;
-        if (now >= expiration) expired.push(item);
-        else if (expiration - now <= 259200000) threeDay.push(item);
-        else if (expiration - now <= 604800000) aWeek.push(item);
-        else longer.push(item);
+        var expiration = items[item].date;
+        console.log(typeof items[item].date);
+        console.log(items[item].date);
+        if (now >= expiration) expired.push(items[item]);
+        else if (expiration - now <= 259200000) threeDay.push(items[item]);
+        else if (expiration - now <= 604800000) aWeek.push(items[item]);
+        else longer.push(items[item]);
       }
-      res.render('test', {
+      console.log(expired, threeDay, aWeek, longer);
+      res.json({
         expired: expired,
         threeDay: threeDay,
         aWeek: aWeek,
