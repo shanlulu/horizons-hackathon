@@ -108,6 +108,21 @@ app.post('/save/:shopItemId', function(req, res){
 		.then(res.respond({success: true}))
 });
 
+app.post('/saveToShop/:shelfItemId', function(req, res){
+  ShelfItem.findById(req.params.shelfItemId).exec()
+    .then(function(resp){
+      new ShopItem({
+        name: resp.name,
+        category: resp.category,
+        date: resp.date - (new Date().getTime()),
+        imageUrl: resp.imageUrl
+      }).save(function(err){
+        console.log("Error saving to database", err);
+      });
+    })
+    .then(res.respond({success: true}))
+});
+
 app.use('/api', api);
 
 app.listen(PORT, error => {
