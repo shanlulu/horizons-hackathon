@@ -70,8 +70,8 @@ app.get('/fetch', function(req, res) {
   })
 })
 
-app.post('/remove/:fid', function(req, res) {
-  ShelfItem.findById(req.params.fid, function(err, item) {
+app.post('/remove', function(req, res) {
+  ShelfItem.findById(req.body.id, function(err, item) {
     if (err) console.log('ERROR', err);
     else {
       item.remove();
