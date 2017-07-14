@@ -46,6 +46,7 @@ class FridgeContent extends React.Component {
                   expiryDate={item.date}
                   imageUrl={item.imageUrl}
                   category={item.category}
+                  id={item._id}
                 />)) : null
               }
             </div>
@@ -56,6 +57,7 @@ class FridgeContent extends React.Component {
                   expiryDate={item.date}
                   imageUrl={item.imageUrl}
                   category={item.category}
+                  id={item._id}
                 />)) : null
               }
             </div>
@@ -66,6 +68,7 @@ class FridgeContent extends React.Component {
                   expiryDate={item.date}
                   imageUrl={item.imageUrl}
                   category={item.category}
+                  id={item._id}
                 />)) : null
               }
             </div>
@@ -75,7 +78,7 @@ class FridgeContent extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-   foodItems: state
+   foodItems: state.fridgeItem
 });
 
 const mapDispatchToProps = (dispatch) => ({
