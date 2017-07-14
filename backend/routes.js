@@ -8,6 +8,15 @@ router.use('/users', (req, res) => {
     res.json({ success: true });
 });
 
+router.get('/fetchShop', function(req, res) {
+  ShopItem.find(function(err, items) {
+    if (err) console.log('ERROR', err);
+    else {
+      res.json(items);
+    }
+  }
+})
+
 router.get('/fetch', function(req, res) {
   var expired = [];
   var threeDay = [];
