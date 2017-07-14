@@ -4,6 +4,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 var models = require('./models/models');
 var ShelfItem = models.ShelfItem;
 var ShopItem = models.ShopItem;
@@ -23,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
+
 
 app.get('/fetch', function(req, res) {
   var expired = [];
@@ -61,7 +64,33 @@ app.post('/remove/:fid', function(req, res) {
   })
 })
 
+app.post('/save', function(req, res){
+	if (!req.body.name) console.log("Item name required");
+	new ShelfItem({
+		name: req.body.name,
+		category: req.body.category,
+		date: req.body.date.getTime(),
+		imageUrl: req.body.imageUrl
+	}).save(function(err){
+		console.log("Error saving to database", err);
+	})
+	.then(res.respond({success: true}))
+});
 
+app.post('/save/:shopItemId', function(req, res){
+	ShopItem.findById(req.params.shopItemId).exec()
+		.then(function(resp){
+			new ShelfItem({
+				name: resp.name,
+				category: resp.category,
+				date: resp.storage + (new Date().getTime()),
+				imageUrl: resp.imageUrl
+			}).save(function(err){
+				console.log("Error saving to database", err);
+			});
+		})
+		.then(res.respond({success: true}))
+});
 
 app.use('/api', api);
 
