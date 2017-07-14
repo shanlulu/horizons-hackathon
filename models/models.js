@@ -14,7 +14,7 @@ var itemSchema = new Schema({
 	name: {
 		type: String,
 		required: true
-	}
+	},
 	category: String,
 	date: Number,
 	imageUrl: String
@@ -24,7 +24,7 @@ var shopSchema = new Schema({
 	name: {
 		type: String,
 		required: true
-	}
+	},
 	category: String,
 	storage: Number,
 	imageUrl: String
