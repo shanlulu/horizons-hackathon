@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+var models = require('../models/models');
+var ShelfItem = models.ShelfItem;
+var ShopItem = models.ShopItem;
+const mongoose = require('mongoose');
 
 // YOUR API ROUTES HERE
 
@@ -14,7 +18,7 @@ router.get('/fetchShop', function(req, res) {
     else {
       res.json(items);
     }
-  }
+  })
 })
 
 router.get('/fetch', function(req, res) {
