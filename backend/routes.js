@@ -14,7 +14,7 @@ router.get('/fetchShop', function(req, res) {
     else {
       res.json(items);
     }
-  }
+  })
 })
 
 router.get('/fetch', function(req, res) {

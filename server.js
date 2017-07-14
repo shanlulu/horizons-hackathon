@@ -40,7 +40,7 @@ app.get('/', (request, response) => {
 //   });
 // })
 
-app.use('/api', api);
+app.use('/', api);
 
 app.listen(PORT, error => {
     error

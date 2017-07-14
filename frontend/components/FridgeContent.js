@@ -78,7 +78,7 @@ class FridgeContent extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-   foodItems: state
+   foodItems: state.fridgeItem
 });
 
 const mapDispatchToProps = (dispatch) => ({
