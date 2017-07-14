@@ -1,13 +1,13 @@
-import types from '../actions/types';
-function rootReducer(state = {}, action) {
-    switch (action.type) {
-        case types.removeItem:
-            return state.filter(item => item._id !== action.id);
-        case types.fetch:
-            return action.foodItemObj;
-        default:
-            return state;
-    }
-}
+import { routerReducer } from 'react-router-redux';
+import { combineReducers } from 'redux';
+import fridgeItemReducer from './fridgeItemReducer';
+import templateReducer from './templateReducer';
+// import ifOpenReducer from './ifOpenReducer';
+
+const rootReducer = combineReducers({
+    fridgeItem: fridgeItemReducer,
+    template: templateReducer,
+    routing: routerReducer
+});
 
 export default rootReducer;
