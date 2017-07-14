@@ -4,6 +4,8 @@ import FoodItem from './FoodItem';
 import axios from 'axios';
 import { removeItem, fetch } from '../actions/index';
 import {connect} from 'react-redux';
+import { Route, Link } from 'react-router-dom';
+import Login from 'Login';
 
 class FridgeContent extends React.Component {
     constructor(props) {
@@ -25,6 +27,7 @@ class FridgeContent extends React.Component {
     render() {
         return (
           <div>
+            <Route exact={true} path="/fridge" component={Login}/>
             <div>
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
                 {
