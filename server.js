@@ -1,9 +1,19 @@
 const path = require('path');
 const express = require('express');
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+
+var models = require('./models/models');
+var Item = models.Item;
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const api = require('./backend/routes');
 
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (request, response) => {
