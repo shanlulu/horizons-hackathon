@@ -31,7 +31,6 @@ class FoodItem extends React.Component {
           category: {this.props.category} <br/>
           name: {this.props.name} <br/>
           expiryDate: {this.props.expiryDate} <br/>
-          id: {this.props.id} <br/>
           <button onClick={()=>this.remove(this.props.id)}>Remove</button>
         </div>
       );
