@@ -1,32 +1,34 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
-import Title from '../components/Title';
+// import { connect } from 'react-redux';
+import FridgeContent from '../components/FridgeContent';
 
-const AppContainer = ({ name }) => {
+const AppContainer = () => {
     return (
         <div>
-            <Title name={name} />
+            <FridgeContent />
         </div>
     );
 };
 
-AppContainer.propTypes = {
-    name: PropTypes.string,
-};
+// AppContainer.propTypes = {
+//     // name: PropTypes.string,
+// };
 
-const mapStateToProps = (state) => {
-    return {
-        name: state.name
-    };
-};
+// const mapStateToProps = (/* state*/) => {
+//     return {
+//         // name: state.name
+//     };
+// };
 
-const mapDispatchToProps = (/* dispatch */) => {
-    return {
-    };
-};
+// const mapDispatchToProps = (/* dispatch */) => {
+//     return {
+//     };
+// };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AppContainer);
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )(AppContainer);
+
+export default AppContainer;

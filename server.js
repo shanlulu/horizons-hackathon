@@ -112,6 +112,6 @@ app.use('/api', api);
 
 app.listen(PORT, error => {
     error
-    ? console.error(error)
-    : console.info(`==> 🌎 Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`);
+        ? console.error(error)
+        : console.info(`==> 🌎 Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`);
 });
