@@ -51,7 +51,7 @@ router.get('/fetch', function(req, res) {
   })
 })
 
-router.post('/remove/', function(req, res) {
+router.post('/remove', function(req, res) {
   ShelfItem.findById(req.body.id, function(err, item) {
     if (err) console.log('ERROR', err);
     else {

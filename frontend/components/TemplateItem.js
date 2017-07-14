@@ -13,7 +13,7 @@ class TemplateItem extends React.Component {
           <img alt={this.props.name} src={this.props.imageUrl ? this.props.imageUrl : '###'} /> <br/>
           category: {this.props.category} <br/>
           name: {this.props.name} <br/>
-          <button onClick={()=>()}>Add to Fridge</button>
+          <button>Add to Fridge</button>
         </div>
       );
     }

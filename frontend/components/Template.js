@@ -4,7 +4,7 @@ import TemplateItem from './TemplateItem';
 import axios from 'axios';
 // import {connect} from 'react-redux';
 
-class FridgeContent extends React.Component {
+class Template extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,7 +28,7 @@ class FridgeContent extends React.Component {
         return (
           <div>
             <div>
-              {this.props.template.length>0? this.props.template.map(item =>
+              {this.state.template.length>0? this.state.template.map(item =>
                 (<TemplateItem key ={item._id}
                   name={item.name}
                   imageUrl={item.imageUrl}
@@ -43,12 +43,9 @@ class FridgeContent extends React.Component {
 }
 
 
-FoodItem.propTypes = {
-    name: PropTypes.string,
-    expiryDate: PropTypes.number, // careful with what we receive
-    imageUrl: PropTypes.string,
-    category: PropTypes.string
-};
+// Template.propTypes = {
+//
+// };
 
 
 export default Template;
