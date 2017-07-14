@@ -5,7 +5,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 var models = require('./models/models');
-var Item = models.Item;
+var ShelfItem = models.ShelfItem;
+var ShopItem = models.ShopItem;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
