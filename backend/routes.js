@@ -52,7 +52,7 @@ router.get('/categories', function(req, res) {
   })
 })
 
-router.get('/fridge', (req, res) => {
+router.get('/home', (req, res) => {
   ShelfItem.find(function(err, items) {
     if (err) console.log('ERR', err);
     else {

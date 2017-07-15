@@ -10,7 +10,7 @@ const AppContainer = () => {
       <BrowserRouter basename='/'>
         <div>
 
-          <Route exact={true} path='/' component={Login}/>
+          <Route exact={true} path='/login' component={Login}/>
           <Route exact={true} path='/ownfridge' component={Profile}/>
           <Route exact={true} path='/template' component={Template}/>
         </div>

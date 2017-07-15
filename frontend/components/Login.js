@@ -34,7 +34,7 @@ render() {
       <div className="container">
         <div className="row main">
           <div className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 80}}>
-            <h3 style={{textAlign: 'center', color: '#D2691E'}}>Login to Food Master</h3><br />
+            <h3 style={{textAlign: 'center', color: '#D2691E'}}>Login to Fridg!t</h3><br />
             {/* </div>
 				<div class="main-login main-center" style="background-color:#FAEBD7"> */}
             <form className method="post" action="#">
