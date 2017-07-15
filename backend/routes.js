@@ -105,6 +105,24 @@ router.post('/saveFromShop', function(req, res){
 		})
 });
 
+router.post('/saveToShop', function(req, res){
+  ShelfItem.findById(req.body.id).exec()
+    .then(function(resp){
+      new ShopItem({
+        name: resp.name,
+        category: resp.category,
+        storage: resp.date - (new Date().getTime()),
+        imageUrl: resp.imageUrl
+      }).save(function(err){
+        if(err){
+          console.log("Error saving to database", err)
+        } else {
+          res.json({success: true})
+        }
+      });
+    })
+});
+
 router.get('/recipes', function(req, res){
   ShelfItem.find().exec()
     .then(function(resp){
