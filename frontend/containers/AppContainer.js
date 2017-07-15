@@ -6,8 +6,9 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Profile from '../components/Profile';
 const AppContainer = () => {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename='/'>
         <div>
+
           <Route exact={true} path='/' component={Login}/>
           <Route exact={true} path='/fridge' component={Profile}/>
         </div>

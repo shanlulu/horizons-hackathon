@@ -7,20 +7,20 @@ var ShopItem = models.ShopItem;
 // YOUR API ROUTES HERE
 
 // SAMPLE ROUTE
-router.get('/login', (req, res) => {
-    res.render('login.hbs');
-});
+// router.get('/login', (req, res) => {
+//     res.render('login.hbs');
+// });
 
-router.get('/shop', (req, res) => {
-  ShopItem.find(function(err, items) {
-    if (err) console.log('ERR', err);
-    else {
-      res.render('shop.hbs', {
-        shopItems: items
-      });
-    }
-  })
-})
+// router.get('/shop', (req, res) => {
+//   ShopItem.find(function(err, items) {
+//     if (err) console.log('ERR', err);
+//     else {
+//       res.render('shop.hbs', {
+//         shopItems: items
+//       });
+//     }
+//   })
+// })
 
 router.get('/fetchShop', function(req, res) {
   ShopItem.find(function(err, items) {
@@ -126,7 +126,7 @@ router.get('/recipes', function(req, res){
         },
         success: function(resp){
           var results = resp.responseJSON.results;
-          res.respond({recipes: results});
+          res.json({recipes: results});
         },
         error: function(err){
           console.log("Failure getting recipes");

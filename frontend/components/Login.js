@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import  basecss  from '../assets/stylesheets/base.js';
+import { Link,Route } from 'react-router-dom';
+import Profile from '../components/Profile';
+// import  basecss  from '../assets/stylesheets/base.js';
 
 class Login extends React.Component {
     constructor(props) {
@@ -28,7 +29,6 @@ class Login extends React.Component {
 }
 
 render() {
-  console.log('basecss', basecss)
   return (
     <div>
       <div className="container">
@@ -61,6 +61,7 @@ render() {
               <div className="form-group ">
                   {/* <Link to='/fridge' type="button" id="button" className="btn btn-primary btn-lg btn-block login-button">Login Here</Link> */}
                 <Link to="/fridge" type="button" id="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Login</Link>
+                {/* <Route path="/fridge" component={Profile} /> */}
               </div>
             </form>
           </div>
