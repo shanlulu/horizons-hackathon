@@ -14,7 +14,7 @@ class FridgeContent extends React.Component {
         const dbUrl = "http://localhost:3000";
         axios.get(dbUrl + '/fetch')
          .then((response) =>
-             { this.props.fetch(response.data)
+             { fridge.props.fetch(response.data)
              }
          )
           .catch((err) =>

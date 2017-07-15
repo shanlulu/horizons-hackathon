@@ -11,10 +11,8 @@ class FoodItem extends React.Component {
     }
     remove(id){
       const fridge = this;
-      console.log(id);
       axios.post(dbUrl+'/remove',{id:id})
       .then(function(res){
-        console.log('removed this item:',id);
         axios.get(dbUrl + '/fetch')
          .then((response) =>
              { fridge.props.fetch(response.data)}
