@@ -12,16 +12,51 @@ var request = require('request');
 //     res.render('login.hbs');
 // });
 
-// router.get('/shop', (req, res) => {
-//   ShopItem.find(function(err, items) {
-//     if (err) console.log('ERR', err);
-//     else {
-//       res.render('shop.hbs', {
-//         shopItems: items
-//       });
-//     }
-//   })
-// })
+router.get('/fridge', (req, res) => {
+  ShelfItem.find(function(err, items) {
+    if (err) console.log('ERR', err);
+    else {
+      var expired = [];
+      var threeDay = [];
+      var aWeek = [];
+      var longer = [];
+      ShelfItem.find(function(err, items) {
+        if (err) console.log('ERROR', err);
+        else {
+          for (var item in items) {
+            //var expiration = new Date(new Date().getTime() + item.date);
+            var now = new Date().getTime();
+            var expiration = items[item].date;
+            var dateObj = new Date(items[item].date);
+            if (now >= expiration) expired.push(items[item]);
+            else if (expiration - now <= 259200000) threeDay.push(items[item]);
+            else if (expiration - now <= 604800000) aWeek.push(items[item]);
+            else longer.push(items[item]);
+          }
+          console.log(expired, threeDay, aWeek, longer);
+          res.render('fridge', {
+            expired: expired,
+            threeDay: threeDay,
+            aWeek: aWeek,
+            longer: longer
+          })
+        }
+      })
+    }
+  })
+})
+
+
+router.get('/shop', (req, res) => {
+  ShopItem.find(function(err, items) {
+    if (err) console.log('ERR', err);
+    else {
+      res.render('shop.hbs', {
+        shopItems: items
+      });
+    }
+  })
+})
 
 router.get('/fetchShop', function(req, res) {
   ShopItem.find(function(err, items) {

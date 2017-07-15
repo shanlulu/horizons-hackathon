@@ -58,7 +58,7 @@
 		        success: function(resp){
 		          var results = resp.results;
 		          for (var item in results) {
-		     			
+
 		        //   	$.ajax({
 				      //   url: results[item].url + '/',
 				      //   dataType: 'html',
@@ -71,7 +71,7 @@
 				        	// var title = $(resp).find('meta[property="og:title"]').attr('content');
 				        	var html = `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 											<div class="sample">
-												<a href=`results[item].url`>
+												<a href=${results[item].url}>
 												<img src="http://d27bfab0aa6b39479cb3-cb8f43ffb46322cff58594e95a13ac65.r29.cf5.rackcdn.com/` + results[item].id + `.jpg";/></a>
 												<span class="top"></span>
 												<span class="right"></span>
