@@ -10,16 +10,16 @@
     overflow: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
-/*body, html{*/
-  /*height: 100%;*/
+body, html{
+  height: 100%;
   /*background: url('http://more-sky.com/data/out/10/IMG_373670.gif');*/
- 	/*background-repeat: no-repeat;*/
+ 	background-repeat: repeat-y;
  	/*background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);*/
- 	/*font-family: 'Oxygen', sans-serif;
+ 	font-family: 'Oxygen', sans-serif;
 	background-size: cover;
   position: relative;
-  overflow: hidden;
-}*/
+  /*overflow: hidden;*/
+}
 
 body, html:before {
     content: ' ';
@@ -31,8 +31,8 @@ body, html:before {
     height: 100%;
     z-index: 1;
     opacity: 0.8;
-    background-image: url('http://more-sky.com/data/out/10/IMG_373670.gif');
-    background-repeat: no-repeat;
+    background-image: url('https://image.ibb.co/nfSA4a/background.jpg');
+    background-repeat: repeat-y;
     background-position: 50% 0;
     -ms-background-size: cover;
     -o-background-size: cover;
