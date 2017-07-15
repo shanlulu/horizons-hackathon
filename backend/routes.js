@@ -69,13 +69,15 @@ router.post('/save', function(req, res){
 		date: req.body.date.getTime(),
 		imageUrl: req.body.imageUrl
 	}).save(function(err){
-		console.log("Error saving to database", err);
+    if(err){
+      console.log("Error saving to database", err);
+    }
 	})
-	.then(res.respond({success: true}))
+	.then(res.json({success: true}))
 });
 
-router.post('/save/:shopItemId', function(req, res){
-	ShopItem.findById(req.params.shopItemId).exec()
+router.post('/saveFromShop', function(req, res){
+	ShopItem.findById(req.body.id).exec()
 		.then(function(resp){
 			new ShelfItem({
 				name: resp.name,
@@ -83,10 +85,13 @@ router.post('/save/:shopItemId', function(req, res){
 				date: resp.storage + (new Date().getTime()),
 				imageUrl: resp.imageUrl
 			}).save(function(err){
-				console.log("Error saving to database", err);
+				if(err){
+          console.log("Error saving to database", err)
+        } else {
+          res.json({success: true})
+        }
 			});
 		})
-		.then(res.respond({success: true}))
 });
 
 
