@@ -106,5 +106,36 @@ router.post('/saveFromShop', function(req, res){
 		})
 });
 
+router.get('/recipes', function(req, res){
+  ShelfItem.find().exec()
+    .then(function(resp){
+      var arr = resp.map((item) => (item.name));
+      return arr;
+    })
+    .then(function(arr){
+      var kitchenString = arr.join(',');
+      $.ajax({
+        url: 'http://www.supercook.com/dyn/results',
+        method: 'post',
+        data: {
+          needsimage: "1",
+          kitchen: kitchenString,
+          focus: "",
+          kw: "",
+          catname: ",",
+          exclude: "",
+          start: "0"
+        },
+        success: function(resp){
+          var results = resp.responseJSON.results;
+          res.respond({recipes: results});
+        },
+        error: function(err){
+          console.log("Failure getting recipes");
+        }
+      });
+    })
+})
+
 
 module.exports = router;
