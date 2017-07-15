@@ -66,6 +66,8 @@
     	<!-- BEGIN PRODUCTS -->
   		{{#each shopItems}}
   			<div class="col-md-2 col-xs-5 thumbnail" style="margin:1em !important">
+          <form action="/saveFromShopExpress/{{this._id}}" method="post">
+]
   				<span>
   						<img src="{{this.imageUrl}}" alt="..." style="height:200px !important; width:100%;text-align: center">
   						<h4 style="margin: 1em; text-align: center">{{this.name}}</h4>
@@ -75,10 +77,12 @@
   								<p class="price">#{{this.category}}</p>
   							</div>
   							<div class="col-md-12 col-sm-12">
-  							 <a href="/fetch"><button class="btn btn-info right"> Add to fridge</button></a>
+                   <!-- <button class="btn btn-info right"> Add to fridge</button> -->
+                <input class="btn btn-info right" type="submit" name="add" value="Add to fridge">
   						 </div>
   						</div>
   				</span>
+          </form>
   			</div>
   		{{/each}}
   	<!-- END PRODUCTS -->
@@ -86,6 +90,11 @@
   </div><!-------container----->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script type="text/javascript">
+     $('.btn-info').click(function() {
+       $(this).hide();
+     });
+   </script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

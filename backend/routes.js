@@ -140,6 +140,29 @@ router.post('/saveFromShop', function(req, res){
 		})
 });
 
+router.post('/saveFromShopExpress/:itemId', function(req, res){
+	ShopItem.findById(req.params.itemId).exec(function(err, resp){
+      if (err) console.log(err);
+      else {
+        new ShelfItem({
+  				name: resp.name,
+  				category: resp.category,
+  				date: resp.storage + (new Date().getTime()),
+  				imageUrl: resp.imageUrl
+  			}).save(function(err, item){
+  				if(err){
+            console.log("Error saving to database", err)
+          } else {
+            console.log('SAVED', item);
+            // ("1").insertBefore($('.btn-info'));
+            
+            res.redirect('/shop');
+          }
+  			});
+      }
+		})
+});
+
 router.post('/saveToShop', function(req, res){
   ShelfItem.findById(req.body.id).exec()
     .then(function(resp){
