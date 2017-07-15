@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test</title>
-  <link rel='stylesheet' href='testpage.css' type="text/css"/>
+  <title>Recipe Finder</title>
+  <!-- <link rel='stylesheet' href='testpage.css' type="text/css"/> -->
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Titillium+Web:400,600' rel='stylesheet' type='text/css'>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Satisfy" />
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -15,34 +16,36 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <style>
-  :after,*{transition: all 0.35s ease;
-			-webkit-transition: all 0.35s ease;
-			-moz-transition: all 0.35s ease;
-			-moz-transition: all 0.35s ease;
-			-ms-transition: all 0.35s ease;
-			-o-transition: all 0.35s ease;}
-			img{max-width:100%;}
-			.sample{background:#000;margin-bottom:15px;float:left;position:relative;text-align:center;line-height:100px;font-size:18px;position:relative;box-shadow:5px 5px 10px #888;overflow:hidden}
-			.sample .top{position:absolute;top:5%; left:5%;width:90%;height:2px;background:#635012;}
-			.sample .top:after{position:absolute;top:0; left:0;width:50px;height:2px;background:#d3b554;content:"";}
-			.sample .right{position:absolute;top:5%; right:5%;height:90%;width:2px;background:#635012;}
-			.sample .right:after{position:absolute;top:0; left:0;height:50px;width:2px;background:#d3b554;content:""}
-			.sample .bottom{    position: absolute;    bottom: 5%;    right: 5%;    height: 2px;    width: 90%;    background: #542222;}
-			.sample .bottom:after{position:absolute;top:0; right:0;width:50px;height:2px;background:#d3b554;content:""}
-			.sample .left{    position: absolute;    bottom: 5%;    left: 5%;    height: 90%;    width:2px;    background: #542222;}
-			.sample .left:after{ position:absolute;bottom:0; left:0;height:50px;width:2px;background:#d3b554;content:""}
-			.sample:hover .top:after{width:100%;background:#fff}
-			.sample:hover .left:after{height:100%;background:#fff}
-			.sample:hover .bottom:after{width:100%;background:#fff}
-			.sample:hover .right:after{height:100%;background:#fff}
-			.sample:hover img{transform:scale(1.1)}
-			</style>
+	.new-deal{width:100%;float:left;padding:15px 0;}
+	.new-deal .item-slide{position: relative;overflow: hidden;transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease;margin:15px 0; -moz-border-radius: 25px; border-radius: 25px;-webkit-border-radius: 25px;}
+	.new-deal .slide-hover{ position: absolute;height: 100%;width: 100%;left: -100%; background:rgba(224, 178, 150,.4);top: 0;transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease;-moz-border-radius: 25px; border-radius: 25px;-webkit-border-radius: 25px;  }
+	.new-deal .item-slide:hover .slide-hover{left:0px;}
+	.new-deal img{max-width:100%;}
+	.text-wrap {position: absolute;bottom: 0;left: 0;width: 100%;color: #fff;background: rgba(224, 178, 150, .4);z-index:999;transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease;}
+	.text-wrap h4{padding:0 5px;}
+	.box-img{width: 100%; height: 100%;  float: left;    -moz-border-radius: 25px; border-radius: 25px;-webkit-border-radius: 25px;    overflow: hidden;    border: 2px solid black;}
+	.text-wrap .desc{width:50%;float:left;padding:0 5px;}
+	.text-wrap p{padding: 15px;font-size: 15px;text-align: center;font-weight: normal;text-shadow: 2px 2px 3px #000;}
+	.text-wrap .desc h4{margin:0px;font: 400 17px/21px "Roboto";}
+	.text-wrap .desc h3{margin:0px;font: 400 32px/36px "Roboto";}
+	.new-deal .item-slide:hover .text-wrap{background:none}
+	.book-now-c {float:right;padding:10px;}
+	.book-now-c a {background: #d2a679; font-family: Ariel; color: black;padding: 5px;border-radius: 25px;margin-top:0px;float: left;min-width: 101px;text-align: center;font-size: 16px; border: 1px solid black;}
+	.new-deal .item-slide:hover .box-img .text-wrap{bottom:-100%;}
+	#grad {
+	  background: #d9b38c; /* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(left top, white, #d9b38c); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(bottom right, white, #d9b38c); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(bottom right, white, #d9b38c); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to bottom right, white, #d9b38c); /* Standard syntax */
+	}
+</style>
 </head>
-<body>
-<div class="container">
-	<div class="row">
-		<h1 class="text-center">Recipe Wizard</h1><br>
-			<script>
+<body id="grad">
+<section class="new-deal">
+		 <div class="container" style='border:4px black solid; background-color: white; border-radius: 30px; padding: 12px 15px'>
+		 <h1 style="font-family: Satisfy; font-size: 65px; text-decoration: bold; text-align: center;"> <span>Recipe Finder </span></h1>
+		 <script>
 			$.ajax({
 		        url: 'http://www.supercook.com/dyn/results',
 		        method: 'post',
@@ -58,30 +61,34 @@
 		        success: function(resp){
 		          var results = resp.results;
 		          for (var item in results) {
-
-		        //   	$.ajax({
-				      //   url: results[item].url + '/',
-				      //   dataType: 'html',
-				      //   method: 'post',
-				      //   error: function(err) {
-				      //   	console.log("Error getting recipe");
-				      //   },
-				      //   success: function(resp){
-				      //   	var img = $(resp).find('meta[property="og:image"]').attr('content');
-				        	// var title = $(resp).find('meta[property="og:title"]').attr('content');
-				        	var html = `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-											<div class="sample">
+				        	var html = `<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 deal deal-block">
+											<div class="item-slide">
+													<div class="box-img">
 												<a href=${results[item].url}>
-												<img src="http://d27bfab0aa6b39479cb3-cb8f43ffb46322cff58594e95a13ac65.r29.cf5.rackcdn.com/` + results[item].id + `.jpg";/></a>
-												<span class="top"></span>
-												<span class="right"></span>
-												<span class="bottom"></span>
-												<span class="left"></span>
-											</div>
-										</div>`
-				            $('.row').append(html);
-				      //   }
-				      // });
+												<img height="100%" width="100%" src="http://d27bfab0aa6b39479cb3-cb8f43ffb46322cff58594e95a13ac65.r29.cf5.rackcdn.com/` + results[item].id + `.jpg"; alt=${results[item].title}/></a>
+												<div class="text-wrap">
+													<h4 style="color: black; font-family: Satisfy; font-size: 26px;">${results[item].title}</span></h4>
+														<div class="desc">`
+														var missing = results[item].needs.join(', ');
+														if (missing) html = html + `<span>Missing: ${results[item].needs}</span>`;
+														html = html + `<h4 style="font-size: 16px;">${results[item].uses}</h4>
+														</div>
+														<div class="book-now-c">								
+														<a href="#">Save</a>
+														</div>
+													</div>
+												</div>
+												<div class="slide-hover">
+												<div class="text-wrap">
+												<p><a style="color:white; text-decoration: none; font-size: 24px; font-family: Satisfy" href=${results[item].url}>Click to Go To Recipe</a></p><br>
+														<div class="book-now-c">
+															<a href="#" style="color: black">Save</a>
+														</div>
+													</div>
+												</div>
+										</div>
+									</div>`
+				            $('.container').append(html);
 		          }
 		        },
 		        error: function(err){
@@ -89,7 +96,7 @@
 		        }
 		      });
 		    </script>
-	</div>
-</div>
+		 </div>
+		 </section>
 </body>
 </html>
