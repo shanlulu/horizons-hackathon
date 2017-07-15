@@ -26,7 +26,7 @@ class FoodItem extends React.Component {
       return (
         <div>
           <div className="col-md-2 col-xs-5 thumbnail" style={{"margin":"1em !important"}}>
-              <img src={this.props.imageUrl} style={{"height":"200px !important", "width":"100%","textAlign": "center"}} />
+              <img src={this.props.imageUrl} style={{"height":"200px", "width":"100%","textAlign": "center"}} />
                 <h4 style={{"margin": "1em", "textAlign": "center"}}>{this.props.name}</h4>
                 <hr />
                   <div className="row">
