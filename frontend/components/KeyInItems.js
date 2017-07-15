@@ -42,7 +42,7 @@ class KeyInItems extends React.Component {
            }
          )
          .then(res=> {
-           setTimeout(function(){fridge.setState({submit:false})},500)
+           setTimeout(function(){fridge.setState({submit:false})},300)
          })
       })
       .catch((err) =>
@@ -64,7 +64,7 @@ class KeyInItems extends React.Component {
           <div>
           <Link to='/'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>
             <form className="main main-login main-center" style={{backgroundColor: backgroundColor, borderRadius: 20, marginTop: 50}}>
-              <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3><br />
+              <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3>
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>
               <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' value={this.state.name} required/>
               <br/>
