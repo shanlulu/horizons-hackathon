@@ -28,7 +28,7 @@ class FoodItem extends React.Component {
           <img alt={this.props.name} src={this.props.imageUrl ? this.props.imageUrl : '###'} /> <br/>
           category: {this.props.category} <br/>
           name: {this.props.name} <br/>
-          expiryDate: {this.props.expiryDate} <br/>
+          expiryDate: {new Date(this.props.expiryDate).toLocaleString()} <br/>
           <button onClick={()=>this.remove(this.props.id)}>Remove</button>
         </div>
       );
