@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <link rel='stylesheet' href='./testpage.css' type="text/css"/>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">Recipe Wizard</h1><br>
+			<script>
+			$.ajax({
+		        url: 'http://www.supercook.com/dyn/results',
+		        method: 'post',
+		        data: {
+		          needsimage: "1",
+		          kitchen: '{{kitchenString}}',
+		          focus: "",
+		          kw: "",
+		          catname: ",",
+		          exclude: "",
+		          start: "0"
+		        },
+		        success: function(resp){
+		          var results = resp.results;
+		          for (var item in results) {
+
+		        //   	$.ajax({
+				      //   url: results[item].url + '/',
+				      //   dataType: 'html',
+				      //   method: 'post',
+				      //   error: function(err) {
+				      //   	console.log("Error getting recipe");
+				      //   },
+				      //   success: function(resp){
+				      //   	var img = $(resp).find('meta[property="og:image"]').attr('content');
+				        	// var title = $(resp).find('meta[property="og:title"]').attr('content');
+				        	var html = `<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="sample">
+												<a href=${results[item].url}>
+												<img src="http://d27bfab0aa6b39479cb3-cb8f43ffb46322cff58594e95a13ac65.r29.cf5.rackcdn.com/` + results[item].id + `.jpg";/></a>
+												<span class="top"></span>
+												<span class="right"></span>
+												<span class="bottom"></span>
+												<span class="left"></span>
+											</div>
+										</div>`
+				            $('.row').append(html);
+				      //   }
+				      // });
+		          }
+		        },
+		        error: function(err){
+		          console.log("Failure getting recipes");
+		        }
+		      });
+		    </script>
+	</div>
+</div>
+</body>
+</html>

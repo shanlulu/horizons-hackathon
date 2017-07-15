@@ -25,18 +25,4 @@ class Profile extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) => ({
-//    foodItems: state.fridgeItem
-// });
-//
-// const mapDispatchToProps = (dispatch) => ({
-//    fetch: (foodItemsObj)=> dispatch(fetch(foodItemsObj)),
-//    removeItem: ()=>dispatch(removeItem(id))
-// });
-
-// FoodItem.propTypes = {
-//
-// };
-
-
 export default Profile;

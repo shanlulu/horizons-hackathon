@@ -3,13 +3,14 @@ const router = express.Router();
 var models = require('../models/models');
 var ShelfItem = models.ShelfItem;
 var ShopItem = models.ShopItem;
+var request = require('request');
 
 // YOUR API ROUTES HERE
 
 // SAMPLE ROUTE
-router.get('/login', (req, res) => {
-    res.render('login.hbs');
-});
+// router.get('/login', (req, res) => {
+//     res.render('login.hbs');
+// });
 
 router.get('/fridge', (req, res) => {
   ShelfItem.find(function(err, items) {
@@ -139,34 +140,76 @@ router.post('/saveFromShop', function(req, res){
 		})
 });
 
+router.post('/saveToShop', function(req, res){
+  ShelfItem.findById(req.body.id).exec()
+    .then(function(resp){
+      new ShopItem({
+        name: resp.name,
+        category: resp.category,
+        storage: resp.date - (new Date().getTime()),
+        imageUrl: resp.imageUrl
+      }).save(function(err){
+        if(err){
+          console.log("Error saving to database", err)
+        } else {
+          res.json({success: true})
+        }
+      });
+    })
+});
+
 router.get('/recipes', function(req, res){
   ShelfItem.find().exec()
     .then(function(resp){
       var arr = resp.map((item) => (item.name));
       return arr;
     })
+    .catch(function(err) {
+      console.log("Error caught", err)
+    })
     .then(function(arr){
       var kitchenString = arr.join(',');
-      $.ajax({
-        url: 'http://www.supercook.com/dyn/results',
-        method: 'post',
-        data: {
-          needsimage: "1",
-          kitchen: kitchenString,
-          focus: "",
-          kw: "",
-          catname: ",",
-          exclude: "",
-          start: "0"
-        },
-        success: function(resp){
-          var results = resp.responseJSON.results;
-          res.respond({recipes: results});
-        },
-        error: function(err){
-          console.log("Failure getting recipes");
-        }
-      });
+      // var options = {
+      //   url: 'http://www.supercook.com/dyn/results',
+      //   method: 'POST',
+      //   headers: {'Content-Type': 'application/json'},
+      //   form: {
+      //     needsimage: "1",
+      //     kitchen: kitchenString,
+      //     focus: "",
+      //     kw: "",
+      //     catname: ",",
+      //     exclude: "",
+      //     start: "0"
+      //   }
+      // };
+      //request(options, function(error, response, body){
+        res.render('testpage', {
+          kitchenString: kitchenString
+        });
+       //   recipes: response
+      //  })
+     // })
+      // $.ajax({
+      //   url: 'http://www.supercook.com/dyn/results',
+      //   method: 'post',
+      //   data: {
+      //     needsimage: "1",
+      //     kitchen: kitchenString,
+      //     focus: "",
+      //     kw: "",
+      //     catname: ",",
+      //     exclude: "",
+      //     start: "0"
+      //   },
+      //   success: function(resp){
+      //     var results = resp.responseJSON.results;
+      //     res.respond({recipes: results});
+      //   },
+      //   error: function(err){
+      //     console.log("Failure getting recipes");
+      //   }
+      // });
     })
 })
 

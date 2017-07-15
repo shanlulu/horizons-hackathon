@@ -24,8 +24,9 @@ class Template extends React.Component {
 
     render() {
         return (
-          <div>
-            <div>
+          <div className="container" style={{"marginTop": "6em"}}>
+            <h2>New Purchases?</h2>
+            <div className="row">
               {this.state.template.length>0? this.state.template.map(item =>
                 (<TemplateItem key ={item._id}
                   name={item.name}

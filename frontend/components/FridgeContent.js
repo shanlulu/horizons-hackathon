@@ -5,6 +5,7 @@ import axios from 'axios';
 import { removeItem, fetch } from '../actions/index';
 import {connect} from 'react-redux';
 import { Route, Link } from 'react-router-dom';
+// const imageUrl = require(`http://dingo.care2.com/pictures/greenliving/1249/1248909.large.jpg`);
 
 class FridgeContent extends React.Component {
     constructor(props) {
@@ -25,8 +26,10 @@ class FridgeContent extends React.Component {
 
     render() {
         return (
-          <div>
-            <div>
+          <div className="container" style={{"marginTop": "6em"}}>
+            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Recipes</a>
+            <h2>Food Already Expired</h2>
+            <div className="row">
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
                 {
                   return (<FoodItem key ={item._id}
@@ -40,7 +43,8 @@ class FridgeContent extends React.Component {
                 : null
               }
             </div>
-            <div>
+            <h2>3 Days Left</h2>
+            <div className="row">
               {this.props.foodItems.threeDay? this.props.foodItems.threeDay.map(item =>
                 (<FoodItem key ={item._id}
                   name={item.name}
@@ -51,7 +55,8 @@ class FridgeContent extends React.Component {
                 />)) : null
               }
             </div>
-            <div>
+            <h2>1 Week To Go</h2>
+            <div className="row">
               {this.props.foodItems.aWeek? this.props.foodItems.aWeek.map(item =>
                 (<FoodItem key ={item._id}
                   name={item.name}
@@ -62,7 +67,8 @@ class FridgeContent extends React.Component {
                 />)) : null
               }
             </div>
-            <div>
+            <h2>Food seems to last eternally, for now...</h2>
+            <div className="row">
               {this.props.foodItems.longer? this.props.foodItems.longer.map(item =>
                 (<FoodItem key ={item._id}
                   name={item.name}
