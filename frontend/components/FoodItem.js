@@ -31,7 +31,7 @@ class FoodItem extends React.Component {
                 <hr />
                   <div className="row">
                     <div className="col-md-12 col-sm-12">
-                      <p className="price" style={{fontSize: "20px", fontFamily: "Ariel", paddingLeft:"10px"}}># {this.props.category}</p>
+                      <p className="price" style={{fontSize: "24px", "fontFamily": "Satisfy", paddingLeft:"10px"}}># {this.props.category}</p>
                     </div>
                     <div className="col-md-12 col-sm-12">
                       <button className="btn btn-info right" onClick={()=>this.remove(this.props.id)}>Remove</button>

@@ -160,19 +160,40 @@ router.post('/remove', function(req, res) {
 })
 
 router.post('/save', function(req, res){
-	if (!req.body.name) console.log("Item name required");
-	new ShelfItem({
-		name: req.body.name,
-		category: req.body.category,
-		date: new Date(req.body.date).getTime(),
-		imageUrl: req.body.imageUrl
-	}).save(function(err,resp){
-    if(err){
-      console.log("Error saving to database", err);
-    } else {
-      res.json({id: resp.id})
-    }
-	})
+  ShopItem.findOne({name: req.body.name})
+  .exec()
+  .then(resp=>{
+    console.log("response!!!!!saving!!!!",resp)
+      new ShelfItem({
+        name: resp.name,
+        category: resp.category,
+        date: new Date(req.body.date).getTime(),
+        imageUrl: resp.imageUrl
+      }).save(function(err,resp){
+        if(err){
+          console.log("Error saving to database", err);
+        } else {
+          res.json({id: resp.id})
+        }
+      })
+    })
+    // else {
+    // }
+  .catch(err => {
+    console.log(err)
+    new ShelfItem({
+      name: req.body.name,
+      category: req.body.category,
+      date: new Date(req.body.date).getTime(),
+      imageUrl: req.body.imageUrl
+    }).save(function(err,resp){
+      if(err){
+        console.log("Error saving to database", err);
+      } else {
+        res.json({id: resp.id})
+      }
+    })
+  })
 });
 
 router.post('/saveFromShop', function(req, res){
