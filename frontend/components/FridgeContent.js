@@ -27,9 +27,9 @@ class FridgeContent extends React.Component {
     render() {
         return (
           <div className="container" style={{"marginTop": "4em"}}>
-            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, border:"none", color: '#D2691E', 'backgroundColor':'#7FFF00'}}><b>Recipe Finder for My Fridge</b></a>
+            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, border:"none", color: '#D2691E', 'backgroundColor':'#adf783'}}><b>Recipe Finder for My Fridge</b></a>
           <br/>
-            <a href='/categories' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, 'backgroundColor': 'yellow', color: '#D2691E', border:'none'}}><b>Browse Foods to Add</b></a>
+            <a href='/categories' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, 'backgroundColor': '#f7f5a0', color: '#D2691E', border:'none'}}><b>Browse Foods to Add</b></a>
             <br/>
             <br/>
             <br/>
