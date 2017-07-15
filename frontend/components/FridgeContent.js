@@ -27,7 +27,7 @@ class FridgeContent extends React.Component {
     render() {
         return (
           <div>
-            <Route exact={true} path="/fridge" component={Login}/>
+            <Route exact={true} path="/fridge"/>
             <div>
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
                 {
