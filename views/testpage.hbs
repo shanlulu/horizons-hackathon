@@ -24,7 +24,7 @@
 	.text-wrap {position: absolute;bottom: 0;left: 0;width: 100%;color: #fff;background: rgba(224, 178, 150, .4);z-index:999;transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease;}
 	.text-wrap h4{padding:0 5px;}
 	.box-img{width: 100%; height: 100%;  float: left;    -moz-border-radius: 25px; border-radius: 25px;-webkit-border-radius: 25px;    overflow: hidden;    border: 2px solid black;}
-	.text-wrap .desc{width:50%;float:left;padding:0 5px;}
+	.text-wrap .desc{width:100%;padding:0px 0px 15px 0px;}
 	.text-wrap p{padding: 15px;font-size: 15px;text-align: center;font-weight: normal;text-shadow: 2px 2px 3px #000;}
 	.text-wrap .desc h4{margin:0px;font: 400 17px/21px "Roboto";}
 	.text-wrap .desc h3{margin:0px;font: 400 32px/36px "Roboto";}
@@ -66,17 +66,17 @@
 															<h4 style="font-size: 16px; color: #331a00; text-align: center">(Uses ${results[item].uses})</h4>`
 														var missing = results[item].needs.join(', ');
 														if (missing) html = html + `<span>Missing: ${results[item].needs}</span>`;
-														html = html + `</div>
-														<div class="book-now-c">								
-														<a href="#">Save</a>
-														</div>
-													</div>
+														 html = html + `</div>` +
+														// <div class="book-now-c">								
+														// <a id="save-recipe" style="color: black; text-decoration: none;">Save</a>
+														// </div>
+													`</div>
 												</div>
 												<div class="slide-hover">
 												<div class="text-wrap">
 												<p><a style="color:white; text-decoration: none; font-size: 24px; font-family: Satisfy" href=${results[item].url}>Click to Go To Recipe</a></p><br>
 														<div class="book-now-c">
-															<a href="#" style="color: black">Save</a>
+															<a id="save-recipe" style="text-decoration: none; color: black">Save</a>
 														</div>
 													</div>
 												</div>
@@ -93,4 +93,11 @@
 		 </div>
 		 </section>
 </body>
+
+<script>
+$('.container').on('click', '#save-recipe', function(e){
+	$(this).text('Saved!')
+})
+</script>
+
 </html>
