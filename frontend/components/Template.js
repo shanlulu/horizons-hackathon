@@ -1,6 +1,7 @@
 import React from 'react';
 import TemplateItem from './TemplateItem';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 
 class Template extends React.Component {
     constructor(props) {
@@ -36,6 +37,7 @@ class Template extends React.Component {
                 />)) : null
               }
             </div>
+              <Link to='/fridge' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Back to My Fridge</Link>
           </div>
         );
     }

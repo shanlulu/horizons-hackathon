@@ -16,10 +16,8 @@ class Profile extends React.Component {
     render() {
         return (
           <div>
-            <span>Type in Fridge new food Item</span>
             <KeyInItems />
-            <FridgeContent />
-            <Template />
+            <FridgeContent/>
           </div>
         );
     }
