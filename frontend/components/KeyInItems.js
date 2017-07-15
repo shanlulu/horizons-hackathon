@@ -51,7 +51,7 @@ class KeyInItems extends React.Component {
             <form className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 80}}>
               <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3><br />
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>
-              <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' placeholder = 'food' required/>
+              <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' placeholder = 'Item Name' required/>
               <br/>
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Expiration Date: </label>
               <input className="form-control" onChange={(date)=>this.updateDate(date)} type='date' required/>
