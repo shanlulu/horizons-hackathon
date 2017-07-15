@@ -62,7 +62,7 @@ class KeyInItems extends React.Component {
         let backgroundColor = this.state.submit? 'yellow': '#FAEBD7';
         return (
           <div>
-          <Link to='/'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>
+          <Link to='/login'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>
             <form className="main main-login main-center" style={{backgroundColor: backgroundColor, borderRadius: 20, marginTop: 50}}>
               <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3>
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>

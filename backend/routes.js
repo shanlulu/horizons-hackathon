@@ -229,7 +229,7 @@ router.post('/saveFromShopExpress/:itemId', function(req, res){
           } else {
             console.log('SAVED', item);
             // ("1").insertBefore($('.btn-info'));
-            res.redirect('/shop');
+            res.redirect('/categories');
           }
   			});
       }
