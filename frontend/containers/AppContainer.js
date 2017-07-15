@@ -4,14 +4,15 @@ import React from 'react';
 import Login from '../components/Login';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Profile from '../components/Profile';
+import Template from '../components/Template';
 const AppContainer = () => {
     return (
       <BrowserRouter basename='/'>
         <div>
 
           <Route exact={true} path='/' component={Login}/>
-          <Route exact={true} path='/fridge' component={Profile}/>
-
+          <Route exact={true} path='/ownfridge' component={Profile}/>
+          <Route exact={true} path='/template' component={Template}/>
         </div>
         </BrowserRouter>
     );

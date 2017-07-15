@@ -60,7 +60,7 @@ render() {
               </div>
               <div className="form-group ">
                   {/* <Link to='/fridge' type="button" id="button" className="btn btn-primary btn-lg btn-block login-button">Login Here</Link> */}
-                <Link to="/fridge" type="button" id="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Login</Link>
+                <Link to="/ownfridge" type="button" id="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Login</Link>
                 {/* <Route path="/fridge" component={Profile} /> */}
               </div>
             </form>

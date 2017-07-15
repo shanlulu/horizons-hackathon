@@ -113,11 +113,11 @@ router.post('/save', function(req, res){
 		category: req.body.category,
 		date: new Date(req.body.date).getTime(),
 		imageUrl: req.body.imageUrl
-	}).save(function(err){
+	}).save(function(err,resp){
     if(err){
       console.log("Error saving to database", err);
     } else {
-      res.json({success: true})
+      res.json({id: resp.id})
     }
 	})
 });
