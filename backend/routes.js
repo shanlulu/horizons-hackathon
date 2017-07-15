@@ -75,14 +75,15 @@ router.post('/save', function(req, res){
 	new ShelfItem({
 		name: req.body.name,
 		category: req.body.category,
-		date: req.body.date.getTime(),
+		date: new Date(req.body.date).getTime(),
 		imageUrl: req.body.imageUrl
 	}).save(function(err){
     if(err){
       console.log("Error saving to database", err);
+    } else {
+      res.json({success: true})
     }
 	})
-	.then(res.json({success: true}))
 });
 
 router.post('/saveFromShop', function(req, res){

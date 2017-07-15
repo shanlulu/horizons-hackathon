@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import  basecss  from '../assets/stylesheets/base.js';
 
 class Login extends React.Component {
     constructor(props) {
@@ -27,43 +28,44 @@ class Login extends React.Component {
 }
 
 render() {
+  console.log('basecss', basecss)
   return (
     <div>
       <div className="container">
         <div className="row main">
-          <div className="main main-login main-center">
-            <h3 style={{textAlign: 'center'}}>Login to Food Master</h3>
-          </div>
-          <div className="main-login main-center">
+          <div className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 80}}>
+            <h3 style={{textAlign: 'center', color: '#D2691E'}}>Login to Food Master</h3><br />
+            {/* </div>
+				<div class="main-login main-center" style="background-color:#FAEBD7"> */}
             <form className method="post" action="#">
               <div className="form-group">
-                <label htmlFor="email" className="cols-sm-2 control-label">Your Email</label>
+                <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Your Email</label>
                 <div className="cols-sm-10">
                   <div className="input-group">
-                    <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true" /></span>
+                    <span className="input-group-addon"><i className="fa fa-envelope fa" style={{color: '#D2691E'}} aria-hidden="true" /></span>
                     <input type="text" className="form-control" name="email" id="email" placeholder="Enter your Email"
                     onChange={(event) => this.handleEmail(event)}/>
                   </div>
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="password" className="cols-sm-2 control-label">Password</label>
+                <label htmlFor="password" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Password</label>
                 <div className="cols-sm-10">
                   <div className="input-group">
-                    <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true" /></span>
+                    <span className="input-group-addon"><i className="fa fa-lock fa-lg" style={{color: '#D2691E'}} aria-hidden="true" /></span>
                     <input type="password" className="form-control" name="password" id="password" placeholder="Enter your Password"
-                      onChange={(event) => this.handlePassword(event)}/>
+                    onChange={(event) => this.handlePassword(event)}/>
                   </div>
                 </div>
               </div>
               <div className="form-group ">
-                <a href="/fetch" type="button" id="button" className="btn btn-primary btn-lg btn-block login-button">Login</a>
+                  {/* <Link to='/fridge' type="button" id="button" className="btn btn-primary btn-lg btn-block login-button">Login Here</Link> */}
+                <Link to="/fridge" type="button" id="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Login</Link>
               </div>
             </form>
           </div>
         </div>
       </div>
-      {/* <Link to='/fridge'>Go to Profile</Link> */}
     </div>
     );
   }
