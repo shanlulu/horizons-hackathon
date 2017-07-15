@@ -26,12 +26,12 @@ class FoodItem extends React.Component {
       return (
         <div>
           <div className="col-md-2 col-xs-5 thumbnail" style={{"margin":"1em !important"}}>
-              <img src={this.props.imageUrl} style={{"height":"200px", "width":"100%","textAlign": "center"}} />
+              <img src={this.props.imageUrl} style={{"height":"100px", "width":"90%","textAlign": "center"}} />
                 <h4 style={{"margin": "1em", "textAlign": "center"}}>{this.props.name}</h4>
                 <hr />
                   <div className="row">
                     <div className="col-md-12 col-sm-12">
-                      <p className="price">{this.props.category}</p>
+                      <p className="price" style={{fontSize: "20px", fontFamily: "Ariel", paddingLeft:"10px"}}># {this.props.category}</p>
                     </div>
                     <div className="col-md-12 col-sm-12">
                       <button className="btn btn-info right" onClick={()=>this.remove(this.props.id)}>Remove</button>

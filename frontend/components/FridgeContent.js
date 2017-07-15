@@ -27,12 +27,13 @@ class FridgeContent extends React.Component {
     render() {
         return (
           <div className="container" style={{"marginTop": "6em"}}>
-            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, 'backgroundColor':'green'}}>Recipes</a>
+            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, border:"none", 'backgroundColor':'#82C64E'}}>Recipe Finder for My Fridge</a>
           <br/>
-            <a href='/shop' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Pre-existing Category</a>
+            <a href='/shop' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, 'backgroundColor': '#4CAAD6', border:'none'}}>Browse Foods to Add</a>
             <br/>
             <br/>
-            <h2>Food Already Expired</h2>
+            <br/>
+            <h2>Expired!</h2>
             <div className="row">
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
                 {
@@ -47,7 +48,7 @@ class FridgeContent extends React.Component {
                 : null
               }
             </div>
-            <h2>3 Days Left</h2>
+            <h2>Enjoy Within 3 Days</h2>
             <div className="row">
               {this.props.foodItems.threeDay? this.props.foodItems.threeDay.map(item =>
                 (<FoodItem key ={item._id}
@@ -59,7 +60,7 @@ class FridgeContent extends React.Component {
                 />)) : null
               }
             </div>
-            <h2>1 Week To Go</h2>
+            <h2>1 Week</h2>
             <div className="row">
               {this.props.foodItems.aWeek? this.props.foodItems.aWeek.map(item =>
                 (<FoodItem key ={item._id}
@@ -71,7 +72,7 @@ class FridgeContent extends React.Component {
                 />)) : null
               }
             </div>
-            <h2>Food seems to last eternally, for now...</h2>
+            <h2>Any Time</h2>
             <div className="row">
               {this.props.foodItems.longer? this.props.foodItems.longer.map(item =>
                 (<FoodItem key ={item._id}

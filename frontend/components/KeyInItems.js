@@ -49,13 +49,14 @@ class KeyInItems extends React.Component {
         return (
           <div>
             <form className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 80}}>
-              <h3 style={{textAlign: 'left', color: '#D2691E','paddingLeft':"50"}}>Type in Fridge new food Item</h3><br />
+              <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3><br />
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>
               <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' placeholder = 'food' required/>
               <br/>
-              <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Expiry Date: </label>
+              <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Expiration Date: </label>
               <input className="form-control" onChange={(date)=>this.updateDate(date)} type='date' required/>
-              <input style={{"marginBottom":20}} className="form-control" onClick={(e)=>this.onSubmit(e)} type='submit' value='Submit'/>
+              <br/>
+              <input style={{"marginBottom":20, backgroundColor: '#FFE68B', color:'#D2691E', border: "none"}} className="form-control" onClick={(e)=>this.onSubmit(e)} type='submit' value='Submit'/>
             </form>
           </div>
         );
