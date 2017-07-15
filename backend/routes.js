@@ -3,14 +3,25 @@ const router = express.Router();
 var models = require('../models/models');
 var ShelfItem = models.ShelfItem;
 var ShopItem = models.ShopItem;
-const mongoose = require('mongoose');
 
 // YOUR API ROUTES HERE
 
 // SAMPLE ROUTE
-router.use('/users', (req, res) => {
-    res.json({ success: true });
+router.get('/login', (req, res) => {
+    //res.json({ success: true });
+    res.render('login.hbs');
 });
+
+router.get('/shop', (req, res) => {
+  ShopItem.find(function(err, items) {
+    if (err) console.log('ERR', err);
+    else {
+      res.render('shop.hbs', {
+        shopItems: items
+      });
+    }
+  })
+})
 
 router.get('/fetchShop', function(req, res) {
   ShopItem.find(function(err, items) {
@@ -51,7 +62,7 @@ router.get('/fetch', function(req, res) {
   })
 })
 
-router.post('/remove/', function(req, res) {
+router.post('/remove', function(req, res) {
   ShelfItem.findById(req.body.id, function(err, item) {
     if (err) console.log('ERROR', err);
     else {
