@@ -218,18 +218,28 @@ router.post('/saveFromShopExpress/:itemId', function(req, res){
 router.post('/saveToShop', function(req, res){
   ShelfItem.findById(req.body.id).exec()
     .then(function(resp){
-      new ShopItem({
-        name: resp.name,
-        category: resp.category,
-        storage: resp.date - (new Date().getTime()),
-        imageUrl: resp.imageUrl
-      }).save(function(err){
-        if(err){
-          console.log("Error saving to database", err)
-        } else {
-          res.json({success: true})
+      //check if inside Shop before creating new item
+      ShopItem.findOne({name:resp.name}).exec()
+      .then(function(response){
+        if(respnse.name){
+          res.json({success:true})
         }
-      });
+        else{
+          new ShopItem({
+            name: resp.name,
+            category: resp.category,
+            storage: resp.date - (new Date().getTime()),
+            imageUrl: resp.imageUrl
+          }).save(function(err){
+            if(err){
+              console.log("Error saving to database", err)
+            } else {
+              res.json({success: true})
+            }
+          });
+        }
+      })
+
     })
 });
 
