@@ -42,7 +42,7 @@ class KeyInItems extends React.Component {
            }
          )
          .then(res=> {
-           setTimeout(function(){fridge.setState({submit:false})},500)
+           setTimeout(function(){fridge.setState({submit:false})},300)
          })
       })
       .catch((err) =>
