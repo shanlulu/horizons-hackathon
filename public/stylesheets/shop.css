@@ -50,14 +50,14 @@ button {    margin-top: 6px;
 }
 .btn-info {
     color: #fff;
-    background-color: #19b4e2;
-    border-color: #19b4e2;
+    background-color: #E9967A;
+    border-color: #E9967A;
 	font-size:13px;
 	font-weight:600;
 }
 
 body{
-    background: #8999A8;
+    background: #FAEBD7;
 }
 .navbar, .dropdown-menu{
 background:rgba(255,255,255,0.25);

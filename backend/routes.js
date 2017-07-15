@@ -8,7 +8,6 @@ var ShopItem = models.ShopItem;
 
 // SAMPLE ROUTE
 router.get('/login', (req, res) => {
-    //res.json({ success: true });
     res.render('login.hbs');
 });
 
@@ -44,8 +43,7 @@ router.get('/fetch', function(req, res) {
         //var expiration = new Date(new Date().getTime() + item.date);
         var now = new Date().getTime();
         var expiration = items[item].date;
-        console.log(typeof items[item].date);
-        console.log(items[item].date);
+        var dateObj = new Date(items[item].date);
         if (now >= expiration) expired.push(items[item]);
         else if (expiration - now <= 259200000) threeDay.push(items[item]);
         else if (expiration - now <= 604800000) aWeek.push(items[item]);

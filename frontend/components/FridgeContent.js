@@ -4,6 +4,7 @@ import FoodItem from './FoodItem';
 import axios from 'axios';
 import { removeItem, fetch } from '../actions/index';
 import {connect} from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 
 class FridgeContent extends React.Component {
     constructor(props) {
