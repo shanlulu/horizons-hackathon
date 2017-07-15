@@ -1,12 +1,12 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
 // import { connect } from 'react-redux';
-import FridgeContent from '../components/FridgeContent';
+import Profile from '../components/Profile';
 
 const AppContainer = () => {
     return (
         <div>
-            <FridgeContent />
+            <Profile />
         </div>
     );
 };
