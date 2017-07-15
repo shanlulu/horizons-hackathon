@@ -80,13 +80,15 @@ router.post('/save', function(req, res){
 		date: req.body.date.getTime(),
 		imageUrl: req.body.imageUrl
 	}).save(function(err){
-		console.log("Error saving to database", err);
+    if(err){
+      console.log("Error saving to database", err);
+    }
 	})
-	.then(res.respond({success: true}))
+	.then(res.json({success: true}))
 });
 
-router.post('/save/:shopItemId', function(req, res){
-	ShopItem.findById(req.params.shopItemId).exec()
+router.post('/saveFromShop', function(req, res){
+	ShopItem.findById(req.body.id).exec()
 		.then(function(resp){
 			new ShelfItem({
 				name: resp.name,
@@ -94,11 +96,45 @@ router.post('/save/:shopItemId', function(req, res){
 				date: resp.storage + (new Date().getTime()),
 				imageUrl: resp.imageUrl
 			}).save(function(err){
-				console.log("Error saving to database", err);
+				if(err){
+          console.log("Error saving to database", err)
+        } else {
+          res.json({success: true})
+        }
 			});
 		})
-		.then(res.respond({success: true}))
 });
+
+router.get('/recipes', function(req, res){
+  ShelfItem.find().exec()
+    .then(function(resp){
+      var arr = resp.map((item) => (item.name));
+      return arr;
+    })
+    .then(function(arr){
+      var kitchenString = arr.join(',');
+      $.ajax({
+        url: 'http://www.supercook.com/dyn/results',
+        method: 'post',
+        data: {
+          needsimage: "1",
+          kitchen: kitchenString,
+          focus: "",
+          kw: "",
+          catname: ",",
+          exclude: "",
+          start: "0"
+        },
+        success: function(resp){
+          var results = resp.responseJSON.results;
+          res.respond({recipes: results});
+        },
+        error: function(err){
+          console.log("Failure getting recipes");
+        }
+      });
+    })
+})
 
 
 module.exports = router;
