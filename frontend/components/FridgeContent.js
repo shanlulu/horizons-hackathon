@@ -27,7 +27,11 @@ class FridgeContent extends React.Component {
     render() {
         return (
           <div className="container" style={{"marginTop": "6em"}}>
-            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Recipes</a>
+            <a href="/recipes" type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20, 'backgroundColor':'green'}}>Recipes</a>
+          <br/>
+            <a href='/shop' type="button" className="btn btn-primary btn-lg btn-block login-button" style={{borderRadius: 20}}>Pre-existing Category</a>
+            <br/>
+            <br/>
             <h2>Food Already Expired</h2>
             <div className="row">
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
