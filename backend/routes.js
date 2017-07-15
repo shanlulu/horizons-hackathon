@@ -8,21 +8,20 @@ var request = require('request');
 // YOUR API ROUTES HERE
 
 // SAMPLE ROUTE
-router.get('/login', (req, res) => {
-    //res.json({ success: true });
-    res.render('login.hbs');
-});
+// router.get('/login', (req, res) => {
+//     res.render('login.hbs');
+// });
 
-router.get('/shop', (req, res) => {
-  ShopItem.find(function(err, items) {
-    if (err) console.log('ERR', err);
-    else {
-      res.render('shop.hbs', {
-        shopItems: items
-      });
-    }
-  })
-})
+// router.get('/shop', (req, res) => {
+//   ShopItem.find(function(err, items) {
+//     if (err) console.log('ERR', err);
+//     else {
+//       res.render('shop.hbs', {
+//         shopItems: items
+//       });
+//     }
+//   })
+// })
 
 router.get('/fetchShop', function(req, res) {
   ShopItem.find(function(err, items) {
@@ -45,8 +44,7 @@ router.get('/fetch', function(req, res) {
         //var expiration = new Date(new Date().getTime() + item.date);
         var now = new Date().getTime();
         var expiration = items[item].date;
-        console.log(typeof items[item].date);
-        console.log(items[item].date);
+        var dateObj = new Date(items[item].date);
         if (now >= expiration) expired.push(items[item]);
         else if (expiration - now <= 259200000) threeDay.push(items[item]);
         else if (expiration - now <= 604800000) aWeek.push(items[item]);
@@ -78,14 +76,15 @@ router.post('/save', function(req, res){
 	new ShelfItem({
 		name: req.body.name,
 		category: req.body.category,
-		date: req.body.date.getTime(),
+		date: new Date(req.body.date).getTime(),
 		imageUrl: req.body.imageUrl
 	}).save(function(err){
     if(err){
       console.log("Error saving to database", err);
+    } else {
+      res.json({success: true})
     }
 	})
-	.then(res.json({success: true}))
 });
 
 router.post('/saveFromShop', function(req, res){

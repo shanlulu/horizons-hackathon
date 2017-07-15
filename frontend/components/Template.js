@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TemplateItem from './TemplateItem';
 import axios from 'axios';
-// import {connect} from 'react-redux';
 
 class Template extends React.Component {
     constructor(props) {
@@ -26,8 +24,9 @@ class Template extends React.Component {
 
     render() {
         return (
-          <div>
-            <div>
+          <div className="container" style={{"marginTop": "6em"}}>
+            <h2>New Purchases?</h2>
+            <div className="row">
               {this.state.template.length>0? this.state.template.map(item =>
                 (<TemplateItem key ={item._id}
                   name={item.name}
@@ -41,11 +40,6 @@ class Template extends React.Component {
         );
     }
 }
-
-
-// Template.propTypes = {
-//
-// };
 
 
 export default Template;

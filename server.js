@@ -22,7 +22,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (request, response) => {
+app.use('/', api);
+app.get('/*', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
 
@@ -40,7 +41,7 @@ app.get('/', (request, response) => {
 //   });
 // })
 
-app.use('/', api);
+
 
 app.listen(PORT, error => {
     error

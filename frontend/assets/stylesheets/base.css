@@ -1,27 +1,42 @@
 /*
+/*let style = {*/
+h1 {
+   font-family: helvetica;
+   font-weight: 200;
+ },
+
+fontColor {
+  color: 'red'
+}
+/*}*/
+/*export default style;*/
+/*
 /* Created by Filipe Pina
  * Specific styles of signin, register, component
  */
 /*
  * General styles
  */
+
 #playground-container {
     height: 500px;
     overflow: hidden !important;
     -webkit-overflow-scrolling: touch;
+
 }
-/*body, html{*/
-  /*height: 100%;*/
+
+body, html {
+  height: 100%;
   /*background: url('http://more-sky.com/data/out/10/IMG_373670.gif');*/
- 	/*background-repeat: no-repeat;*/
+ 	background-repeat: no-repeat;
  	/*background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);*/
- 	/*font-family: 'Oxygen', sans-serif;
+ 	font-family: 'Oxygen', sans-serif;
 	background-size: cover;
   position: relative;
   overflow: hidden;
-}*/
+}
 
-body, html:before {
+body, html {
     content: ' ';
     display: block;
     position: absolute;
@@ -41,7 +56,7 @@ body, html:before {
     background-size: cover;
 }
 
-.main{
+.main {
  	margin:50px 15px;
 }
 
@@ -51,16 +66,16 @@ h1.title {
 	font-weight: 400;
 }
 
-hr{
+hr {
 	width: 10%;
 	color: #fff;
 }
 
-.form-group{
+.form-group {
 	margin-bottom: 15px;
 }
 
-label{
+label {
 	margin-bottom: 15px;
 }
 
@@ -112,7 +127,7 @@ padding: 8px 12px !important;
     background: linear-gradient(top, #f5f5f5 0%, #D2691E 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
 }
-.main-center{
+.main-center {
  	margin-top: 30px;
  	margin: 0 auto;
  	max-width: 400px;
@@ -130,11 +145,11 @@ span.input-group-addon i {
     font-size: 17px;
 }
 
-.login-button{
+.login-button {
 	margin-top: 5px;
 }
 
-.login-register{
+.login-register {
 	font-size: 11px;
 	text-align: center;
-}
+}*/

@@ -25,14 +25,31 @@ class FoodItem extends React.Component {
     render(){
       return (
         <div>
-          <img alt={this.props.name} src={this.props.imageUrl ? this.props.imageUrl : '###'} /> <br/>
-          category: {this.props.category} <br/>
-          name: {this.props.name} <br/>
-          expiryDate: {this.props.expiryDate} <br/>
-          <button onClick={()=>this.remove(this.props.id)}>Remove</button>
-        </div>
+          <div className="col-md-2 col-xs-5 thumbnail" style={{"margin":"1em !important"}}>
+              <img src={this.props.imageUrl} style={{"height":"200px !important", "width":"100%","textAlign": "center"}} />
+                <h4 style={{"margin": "1em", "textAlign": "center"}}>{this.props.name}</h4>
+                <hr />
+                  <div className="row">
+                    <div className="col-md-12 col-sm-12">
+                      <p className="price">{this.props.category}</p>
+                    </div>
+                    <div className="col-md-12 col-sm-12">
+                      <button className="btn btn-info right" onClick={()=>this.remove(this.props.id)}>Remove</button>
+                    </div>
+                  </div>
+          </div>
+  			</div>
+
+
       );
     }
+    /* <div>
+      <img alt={this.props.name} src={this.props.imageUrl ? this.props.imageUrl : '###'} /> <br/>
+      category: {this.props.category} <br/>
+      name: {this.props.name} <br/>
+      expiryDate: {new Date(this.props.expiryDate).toLocaleString()} <br/>
+      <button onClick={()=>this.remove(this.props.id)}>Remove</button>
+    </div> */
 };
 
 const mapStateToProps = (state, ownProps) => ({

@@ -1,13 +1,18 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
 // import { connect } from 'react-redux';
+import Login from '../components/Login';
+import { Route, BrowserRouter } from 'react-router-dom';
 import Profile from '../components/Profile';
-
 const AppContainer = () => {
     return (
+      <BrowserRouter basename='/'>
         <div>
-            <Profile />
+
+          <Route exact={true} path='/' component={Login}/>
+          <Route exact={true} path='/fridge' component={Profile}/>
         </div>
+        </BrowserRouter>
     );
 };
 
