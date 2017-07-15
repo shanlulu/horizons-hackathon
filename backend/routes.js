@@ -3,6 +3,7 @@ const router = express.Router();
 var models = require('../models/models');
 var ShelfItem = models.ShelfItem;
 var ShopItem = models.ShopItem;
+var Category = models.Category;
 var request = require('request');
 
 // YOUR API ROUTES HERE
@@ -11,6 +12,45 @@ var request = require('request');
 // router.get('/login', (req, res) => {
 //     res.render('login.hbs');
 // });
+
+router.get('/build', function(req, res) {
+  res.render('build');
+})
+
+router.post('/build', function(req, res) {
+  new Category({
+    name: req.body.name,
+    imageUrl: req.body.image,
+    content: []
+  }).save(function(err, cat) {
+    if (err) console.log(err);
+    else (res.redirect('/build'));
+  })
+})
+
+router.get('/categories/:category', function(req, res) {
+  ShopItem.find({category: req.params.category}, function(err, items) {
+    if (err) console.log('ERR', err);
+    else {
+      res.render('shop', {
+        category: req.params.category[0].toUpperCase() + req.params.category.slice(1),
+        shopItems: items
+      })
+    }
+  })
+})
+
+router.get('/categories', function(req, res) {
+  Category.find(function(err, cats) {
+    if (err) console.log('ERR', err);
+    else {
+      res.render('categories', {
+        category: 'Categories',
+        categories: cats
+      })
+    }
+  })
+})
 
 router.get('/fridge', (req, res) => {
   ShelfItem.find(function(err, items) {
@@ -52,6 +92,19 @@ router.get('/shop', (req, res) => {
     if (err) console.log('ERR', err);
     else {
       res.render('shop.hbs', {
+        category: "ALL",
+        shopItems: items
+      });
+    }
+  })
+})
+
+router.get('/shop/:category', (req, res) => {
+  ShopItem.find({category: req.params.category}, function(err, items) {
+    if (err) console.log('ERR', err);
+    else {
+      res.render('shop.hbs', {
+        category: category,
         shopItems: items
       });
     }
@@ -155,7 +208,6 @@ router.post('/saveFromShopExpress/:itemId', function(req, res){
           } else {
             console.log('SAVED', item);
             // ("1").insertBefore($('.btn-info'));
-            
             res.redirect('/shop');
           }
   			});
@@ -166,18 +218,28 @@ router.post('/saveFromShopExpress/:itemId', function(req, res){
 router.post('/saveToShop', function(req, res){
   ShelfItem.findById(req.body.id).exec()
     .then(function(resp){
-      new ShopItem({
-        name: resp.name,
-        category: resp.category,
-        storage: resp.date - (new Date().getTime()),
-        imageUrl: resp.imageUrl
-      }).save(function(err){
-        if(err){
-          console.log("Error saving to database", err)
-        } else {
-          res.json({success: true})
+      //check if inside Shop before creating new item
+      ShopItem.findOne({name:resp.name}).exec()
+      .then(function(response){
+        if(respnse.name){
+          res.json({success:true})
         }
-      });
+        else{
+          new ShopItem({
+            name: resp.name,
+            category: resp.category,
+            storage: resp.date - (new Date().getTime()),
+            imageUrl: resp.imageUrl
+          }).save(function(err){
+            if(err){
+              console.log("Error saving to database", err)
+            } else {
+              res.json({success: true})
+            }
+          });
+        }
+      })
+
     })
 });
 

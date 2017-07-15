@@ -30,12 +30,20 @@ var shopSchema = new Schema({
 	imageUrl: String
 });
 
+var categorySchema = new Schema({
+	name: String,
+	imageUrl: String,
+	content: Object
+})
+
 // Step 2: Create all of your models here, as properties.
 var ShelfItem = mongoose.model('ShelfItem', itemSchema);
 var ShopItem = mongoose.model('ShopItem', shopSchema);
+var Category = mongoose.model('Category', categorySchema);
 
 // Step 3: Export your models object
 module.exports = {
 	ShelfItem: ShelfItem,
-	ShopItem: ShopItem
+	ShopItem: ShopItem,
+	Category: Category
 }
