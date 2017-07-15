@@ -11,7 +11,8 @@ class KeyInItems extends React.Component {
         super(props);
         this.state ={
           name:'',
-          date: ''
+          date: '',
+          submit: false
         }
     }
 
@@ -26,12 +27,23 @@ class KeyInItems extends React.Component {
       .then(function(res){
         console.log('res from key in is',res.data.id)
         axios.post(dbUrl+'/saveToShop',{id: res.data.id})
-
         axios.get(dbUrl + '/fetch')
          .then(
            (response) =>
              {console.log("updated by key in");
              fridge.props.fetch(response.data); })
+         .then(response =>
+           {
+             fridge.setState({
+               name:'',
+               date:'',
+               submit: true
+             })
+           }
+         )
+         .then(res=> {
+           setTimeout(function(){fridge.setState({submit:false})},500)
+         })
       })
       .catch((err) =>
           console.log('something',err)
@@ -47,16 +59,17 @@ class KeyInItems extends React.Component {
       this.setState({date: date.target.value})
     }
     render() {
+        let backgroundColor = this.state.submit? 'yellow': '#FAEBD7';
         return (
           <div>
-          <Link to='/'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>  
-            <form className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 50}}>
+          <Link to='/'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>
+            <form className="main main-login main-center" style={{backgroundColor: backgroundColor, borderRadius: 20, marginTop: 50}}>
               <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3><br />
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>
-              <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' placeholder = 'Item Name' required/>
+              <input className="form-control" onChange={(name)=>this.updateName(name)} type='text' value={this.state.name} required/>
               <br/>
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Expiration Date: </label>
-              <input className="form-control" onChange={(date)=>this.updateDate(date)} type='date' required/>
+              <input className="form-control" onChange={(date)=>this.updateDate(date)} type='date' value={this.state.date} required/>
               <br/>
               <input style={{"marginBottom":20, backgroundColor: '#FFE68B', color:'#D2691E', border: "none"}} className="form-control" onClick={(e)=>this.onSubmit(e)} type='submit' value='Submit'/>
             </form>
