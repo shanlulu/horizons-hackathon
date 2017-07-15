@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TemplateItem from './TemplateItem';
 import axios from 'axios';
-// import {connect} from 'react-redux';
 
 class Template extends React.Component {
     constructor(props) {
@@ -41,11 +39,6 @@ class Template extends React.Component {
         );
     }
 }
-
-
-// Template.propTypes = {
-//
-// };
 
 
 export default Template;
