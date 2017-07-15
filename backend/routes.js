@@ -134,47 +134,9 @@ router.get('/recipes', function(req, res){
     })
     .then(function(arr){
       var kitchenString = arr.join(',');
-      // var options = {
-      //   url: 'http://www.supercook.com/dyn/results',
-      //   method: 'POST',
-      //   headers: {'Content-Type': 'application/json'},
-      //   form: {
-      //     needsimage: "1",
-      //     kitchen: kitchenString,
-      //     focus: "",
-      //     kw: "",
-      //     catname: ",",
-      //     exclude: "",
-      //     start: "0"
-      //   }
-      // };
-      //request(options, function(error, response, body){
         res.render('testpage', {
           kitchenString: kitchenString
         });
-       //   recipes: response
-      //  })
-     // })
-      // $.ajax({
-      //   url: 'http://www.supercook.com/dyn/results',
-      //   method: 'post',
-      //   data: {
-      //     needsimage: "1",
-      //     kitchen: kitchenString,
-      //     focus: "",
-      //     kw: "",
-      //     catname: ",",
-      //     exclude: "",
-      //     start: "0"
-      //   },
-      //   success: function(resp){
-      //     var results = resp.responseJSON.results;
-      //     res.respond({recipes: results});
-      //   },
-      //   error: function(err){
-      //     console.log("Failure getting recipes");
-      //   }
-      // });
     })
 })
 
