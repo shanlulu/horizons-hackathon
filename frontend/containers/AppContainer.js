@@ -11,6 +11,7 @@ const AppContainer = () => {
 
           <Route exact={true} path='/' component={Login}/>
           <Route exact={true} path='/fridge' component={Profile}/>
+
         </div>
         </BrowserRouter>
     );
