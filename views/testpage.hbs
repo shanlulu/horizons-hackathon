@@ -67,13 +67,23 @@
 												<a href=${results[item].url}>
 												<img height="100%" width="100%" src="http://d27bfab0aa6b39479cb3-cb8f43ffb46322cff58594e95a13ac65.r29.cf5.rackcdn.com/` + results[item].id + `.jpg"; alt=${results[item].title}/></a>
 												<div class="text-wrap">
+<<<<<<< HEAD
 													<h4 style="color: black; font-family: Satisfy; font-size: 26px;">${results[item].title}</span></h4>
 														<div class="desc">`
 														var missing = results[item].needs.join(', ');
 														if (missing) html = html + `<span>Missing: ${results[item].needs}</span>`;
 														html = html + `<h4 style="font-size: 16px;">${results[item].uses}</h4>
 														</div>
-														<div class="book-now-c">								
+=======
+													<p style="font-family: Satisfy; font-size: 26px; padding: 0px 10px; color:
+														#ECD9C5">${results[item].title}</span></p>
+														<div class="desc">
+															<h4 style="font-size: 16px; color: #331a00; text-align: center">(Uses ${results[item].uses})</h4>`
+														var missing = results[item].needs.join(', ');
+														if (missing) html = html + `<span>Missing: ${results[item].needs}</span>`;
+														html = html + `</div>
+>>>>>>> f4aa3999162c139e81756848681f98823f105cb7
+														<div class="book-now-c">
 														<a href="#">Save</a>
 														</div>
 													</div>
