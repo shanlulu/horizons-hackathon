@@ -47,7 +47,8 @@ class FridgeContent extends React.Component {
                   />)
                 })
                 : null
-              }
+              }  
+              
             </div>
             <h2>Enjoy Within 3 Days</h2>
             <div className="row">
