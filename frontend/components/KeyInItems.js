@@ -4,6 +4,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import { fetch } from '../actions/index';
 const dbUrl = "http://localhost:3000";
+import { Link } from 'react-router-dom';
 
 class KeyInItems extends React.Component {
     constructor(props) {
@@ -48,7 +49,7 @@ class KeyInItems extends React.Component {
     render() {
         return (
           <div>
-          <button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button>
+          <Link to='/'><button className="btn btn-danger" style={{margin: "15px"}}>Log Out</button></Link>  
             <form className="main main-login main-center" style={{backgroundColor: '#FAEBD7', borderRadius: 20, marginTop: 50}}>
               <h3 style={{textAlign: 'center', color: '#D2691E'}}>Add to My Fridge</h3><br />
               <label htmlFor="email" style={{color: '#D2691E'}} className="cols-sm-2 control-label">Food: </label>
