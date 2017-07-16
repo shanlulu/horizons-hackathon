@@ -6,11 +6,11 @@ var ShopItem = models.ShopItem;
 var Category = models.Category;
 var request = require('request');
 
-// YOUR API ROUTES HERE
+// API ROUTES
 
-// SAMPLE ROUTE
-// router.get('/login', (req, res) => {
-//     res.render('login.hbs');
+// router.use('/', (req, res, next) => {
+//     res.redirect('/home');
+//     next();
 // });
 
 router.get('/build', function(req, res) {
@@ -284,6 +284,7 @@ router.get('/recipes', function(req, res){
 router.get('/logout', function(req, res){
   res.redirect('/login');
 })
+
 
 
 module.exports = router;

@@ -27,21 +27,6 @@ app.get('/*', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
 
-// app.get('/test', function(req, res) {
-//   new ShelfItem({
-//     name: 'Shan',
-//     date: 1500062828334,
-//     category: 'hey'
-//   }).save(function(err, item) {
-//     if (err) console.log('ERROR', err);
-//     else {
-//       console.log('SAVED', item);
-//       res.redirect('/fetch');
-//     }
-//   });
-// })
-
-
 
 app.listen(PORT, error => {
     error
