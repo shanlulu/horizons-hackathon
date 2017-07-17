@@ -13,7 +13,7 @@ class FridgeContent extends React.Component {
     }
     componentDidMount() {
         var fridge = this;
-        const dbUrl = "http://localhost:3000";
+        const dbUrl = "https://aqueous-peak-57156.herokuapp.com/";
         axios.get(dbUrl + '/fetch')
          .then((response) =>
              { fridge.props.fetch(response.data)
