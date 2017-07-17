@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const dbUrl = "http://localhost:3000";
+const dbUrl = "https://aqueous-peak-57156.herokuapp.com";
 import axios from 'axios';
 import {connect} from 'react-redux';
 import { fetch } from '../actions/index';

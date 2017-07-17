@@ -13,7 +13,7 @@ class Template extends React.Component {
 
     componentDidMount() {
         var template = this;
-        const dbUrl = "http://localhost:3000";
+        const dbUrl = "https://aqueous-peak-57156.herokuapp.com";
         axios.get(dbUrl + '/fetchShop')
          .then((response) =>
              { template.setState({template: response.data})}

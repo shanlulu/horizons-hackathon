@@ -3,7 +3,7 @@ import TemplateItem from './TemplateItem';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import { fetch } from '../actions/index';
-const dbUrl = "http://localhost:3000";
+const dbUrl = "https://aqueous-peak-57156.herokuapp.com";
 import { Link } from 'react-router-dom';
 
 class KeyInItems extends React.Component {
