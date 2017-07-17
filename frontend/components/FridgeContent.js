@@ -34,6 +34,7 @@ class FridgeContent extends React.Component {
             <br/>
             <br/>
             <br/>
+            <br/>
             <h2>Expired!</h2>
             <div className="row">
               {this.props.foodItems.expired? this.props.foodItems.expired.map(item =>
